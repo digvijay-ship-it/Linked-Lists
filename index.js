@@ -3,8 +3,8 @@
 let linkedListClass;
 
 class MakeNode {
-  constructor(value = null) {
-    (this.value = value), (this.nextNode = null);
+  constructor(value = null, node = null) {
+    (this.value = value), (this.nextNode = node);
   }
 }
 
@@ -24,10 +24,23 @@ class LinkedListClass {
       ref.nextNode = new MakeNode(value);
     }
   }
+  prepend(value) {
+    // start from head node if null
+    let ref = this.head;
+    if (ref === null) {
+      this.append(value);
+    } else {
+      // make a node jiske nextNode main head ka reference
+      // or head main new node ka reference
+      const newNode = new MakeNode(value, ref);
+      this.head = newNode;
+    }
+  }
 }
 
 linkedListClass = new LinkedListClass();
 linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
+linkedListClass.prepend(0);
 console.log(linkedListClass);
