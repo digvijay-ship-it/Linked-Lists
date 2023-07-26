@@ -1,19 +1,5 @@
 "use strict";
 
-const NodeFactory = (value = null, nextNode = null) => {
-  return {
-    value: value,
-    nextNode: nextNode,
-    append: function append(value) {
-      if (this.nextNode === null) {
-        this.nextNode = NodeFactory(value);
-      } else {
-        this.nextNode.append(value);
-      }
-    },
-  };
-};
-
 let linkedListClass;
 
 class MakeNode {
