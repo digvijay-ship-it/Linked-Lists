@@ -45,6 +45,13 @@ class LinkedListClass {
   headNodeOfLinkedList() {
     return this.head;
   }
+  tailNodeOfLinkedList() {
+    let reference = this.head;
+    while (reference.nextNode !== null) {
+      reference = reference.nextNode;
+    }
+    return reference;
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -53,4 +60,4 @@ linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
 console.log(linkedListClass.size());
-console.log(linkedListClass.headNodeOfLinkedList());
+console.log(linkedListClass.tailNodeOfLinkedList());
