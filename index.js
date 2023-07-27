@@ -47,7 +47,7 @@ class LinkedListClass {
   }
   tailNodeOfLinkedList() {
     let reference = this.head;
-    while (reference.nextNode !== null) {
+    while (reference.nextNode) {
       reference = reference.nextNode;
     }
     return reference;
@@ -63,6 +63,21 @@ class LinkedListClass {
     }
     return false;
   }
+
+  pop() {
+    let reference = this.head;
+    if (reference === null) {
+      return true;
+    }
+
+    while (true) {
+      if (reference.nextNode.nextNode === null) {
+        reference.nextNode = null;
+        return true;
+      }
+      reference = reference.nextNode;
+    }
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -70,4 +85,6 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass.returnNodeAt(2));
+console.log(linkedListClass.tailNodeOfLinkedList());
+console.log(linkedListClass.pop());
+console.log(linkedListClass.tailNodeOfLinkedList());
