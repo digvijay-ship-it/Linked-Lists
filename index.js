@@ -120,6 +120,31 @@ class LinkedListClass {
     }
     return nodeValseString;
   }
+
+  insertAt(value, index) {
+    if (value && index === undefined) {
+      return false;
+    }
+    if (index === 0) {
+      this.prepend(value);
+      return true;
+    }
+    if (index > this.size()) {
+      this.append(val);
+      return true;
+    } else {
+      let reference = this.head;
+
+      for (let nodeIndex = 1; nodeIndex < this.size(); nodeIndex++) {
+        if (nodeIndex === index) {
+          const newNode = new MakeNode(value, reference.nextNode);
+          reference.nextNode = newNode;
+          return true;
+        }
+        reference = reference.nextNode;
+      }
+    }
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -127,4 +152,5 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass.toString()); // 0
+linkedListClass.insertAt(12, 1);
+console.log(linkedListClass.toString()); // 0 ---> 12 ---> 1 ---> 2 ---> 3 --->  null
