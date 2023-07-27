@@ -25,7 +25,6 @@ class LinkedListClass {
     }
   }
   prepend(value) {
-    // start from head node if null
     let ref = this.head;
     if (ref === null) {
       this.append(value);
@@ -43,6 +42,9 @@ class LinkedListClass {
     }
     return count;
   }
+  headNodeOfLinkedList() {
+    return this.head;
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -51,3 +53,4 @@ linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
 console.log(linkedListClass.size());
+console.log(linkedListClass.headNodeOfLinkedList());
