@@ -103,6 +103,23 @@ class LinkedListClass {
     }
     return false;
   }
+  toString() {
+    if (this.head === null) {
+      return null;
+    }
+    let reference = this.head;
+    let nodeValseString = "";
+
+    while (reference) {
+      nodeValseString = nodeValseString + `${reference.value} ---> `;
+      if (reference.nextNode === null) {
+        nodeValseString = nodeValseString + ` ${null}`;
+      }
+
+      reference = reference.nextNode;
+    }
+    return nodeValseString;
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -110,5 +127,4 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass.find(0)); // 0
-console.log(linkedListClass.find(10)); // false
+console.log(linkedListClass.toString()); // 0
