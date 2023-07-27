@@ -30,11 +30,18 @@ class LinkedListClass {
     if (ref === null) {
       this.append(value);
     } else {
-      // make a node jiske nextNode main head ka reference
-      // or head main new node ka reference
       const newNode = new MakeNode(value, ref);
       this.head = newNode;
     }
+  }
+  size() {
+    let count = 0;
+    let ref = this.head;
+    while (ref) {
+      count += 1;
+      ref = ref.nextNode;
+    }
+    return count;
   }
 }
 
@@ -43,4 +50,4 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass);
+console.log(linkedListClass.size());
