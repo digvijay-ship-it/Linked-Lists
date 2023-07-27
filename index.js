@@ -88,6 +88,21 @@ class LinkedListClass {
     }
     return false;
   }
+  find(value) {
+    let reference = this.head;
+    if (reference === null) {
+      return false;
+    }
+    let count = 0;
+    while (reference) {
+      if (reference.value === value) {
+        return count;
+      }
+      reference = reference.nextNode;
+      count += 1;
+    }
+    return false;
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -95,6 +110,5 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass.contains(4)); // false
-console.log(linkedListClass.contains(0)); // true
-console.log(linkedListClass.contains(3)); // true
+console.log(linkedListClass.find(0)); // 0
+console.log(linkedListClass.find(10)); // false
