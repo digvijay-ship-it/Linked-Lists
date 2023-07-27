@@ -145,6 +145,29 @@ class LinkedListClass {
       }
     }
   }
+  removeAt(index) {
+    if (index >= this.size()) {
+      return false;
+    }
+    if (this.head === null) {
+      return true;
+    }
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return true;
+    }
+
+    let reference = this.head;
+    let count = 0;
+    while (reference) {
+      if (count + 1 === index) {
+        reference.nextNode = reference.nextNode.nextNode;
+        return true;
+      }
+      reference = reference.nextNode;
+      count++;
+    }
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -152,5 +175,8 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-linkedListClass.insertAt(12, 1);
-console.log(linkedListClass.toString()); // 0 ---> 12 ---> 1 ---> 2 ---> 3 --->  null
+console.log(linkedListClass.toString()); // 0 ---> 1 ---> 2 ---> 3 --->  null
+linkedListClass.removeAt(5); // do nothing
+console.log(linkedListClass.toString()); // 0 ---> 1  ---> 2 ---> 3 --->  null
+linkedListClass.removeAt(1); // remove from 1
+console.log(linkedListClass.toString()); // 0 ---> 2 ---> 3 --->  null
