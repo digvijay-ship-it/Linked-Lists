@@ -78,6 +78,16 @@ class LinkedListClass {
       reference = reference.nextNode;
     }
   }
+  contains(value) {
+    let reference = this.head;
+    while (reference) {
+      if (reference.value === value) {
+        return true;
+      }
+      reference = reference.nextNode;
+    }
+    return false;
+  }
 }
 
 linkedListClass = new LinkedListClass();
@@ -85,6 +95,6 @@ linkedListClass.append(1);
 linkedListClass.append(2);
 linkedListClass.append(3);
 linkedListClass.prepend(0);
-console.log(linkedListClass.tailNodeOfLinkedList());
-console.log(linkedListClass.pop());
-console.log(linkedListClass.tailNodeOfLinkedList());
+console.log(linkedListClass.contains(4)); // false
+console.log(linkedListClass.contains(0)); // true
+console.log(linkedListClass.contains(3)); // true
